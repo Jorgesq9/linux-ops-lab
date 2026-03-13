@@ -1,0 +1,12 @@
+# runtime data
+uptime/*
+grafana/*
+
+# logs
+*.log
+
+# env
+.env
+
+# OS
+.DS_Store

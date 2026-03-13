@@ -1,0 +1,48 @@
+services:
+  nginx:
+    image: nginx:latest
+    container_name: lab-nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    restart: unless-stopped
+
+  sample-web:
+    image: nginx:alpine
+    container_name: lab-web
+    ports:
+      - "8081:80"
+    restart: unless-stopped
+
+  uptime-kuma:
+    image: louislam/uptime-kuma
+    container_name: lab-uptime-kuma
+    ports:
+      - "3010:3001"
+    volumes:
+      - ./uptime:/app/data
+    restart: unless-stopped
+
+  node-exporter:
+    image: prom/node-exporter
+    container_name: lab-node-exporter
+    ports:
+      - "9100:9100"
+    restart: unless-stopped
+
+  prometheus:
+    image: prom/prometheus
+    container_name: lab-prometheus
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana
+    container_name: lab-grafana
+    ports:
+      - "3005:3000"
+    restart: unless-stopped

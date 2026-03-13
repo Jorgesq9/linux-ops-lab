@@ -16,7 +16,7 @@ This project simulates a real production monitoring environment used by Linux / 
 ## Architecture
 
 Monitoring stack deployed with containers:
-
+```text
 Server
 │
 ├── Prometheus (metrics collection)
@@ -24,7 +24,7 @@ Server
 ├── Grafana (visualization)
 ├── Uptime Kuma (service monitoring)
 └── Nginx (reverse proxy)
-
+```
 ## Purpose
 
 Practice real Linux systems administration tasks:
